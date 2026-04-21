@@ -11,15 +11,18 @@ from utils import AGENT_EXECUTION_WITH_RETRIES,create_dir,create_file,view_dir,t
 from rich.console import Console 
 from rich.align import Align
 from rich.table import Table
-console=Console()
-load_dotenv()
-config_main_agent={"configurable":{"thread_id":"Main-run"}}
+
+
 MAIN_DIR="AgentScripts"
 CUR_DIR=os.path.curdir
+config_main_agent={"configurable":{"thread_id":"Main-run"}}
 
+load_dotenv()
 groq_api=os.environ["GROQ_API_KEY"]
 model=ChatGroq(model="openai/gpt-oss-20b",api_key=groq_api)
 inmemory=InMemorySaver()
+
+console=Console()
 
 console.print(Align.center("[bold yellow] CODING ASSISTANT v1.0 [/bold yellow]"))
 features_list=Table(title="Available Features")
@@ -59,7 +62,6 @@ if ACCESS_TO_DIR:
 
 
         input_prompt=str(console.input("[bold green] SYSTEM[/bold green]: [cyan]What would you like to create today? [/cyan]"))
-        # input_prompt="Create Flask api with a script to make requests as well"
 
         if input_prompt:
             STATUS=AGENT_EXECUTION_WITH_RETRIES(txt_file_agent,input_prompt,config_main_agent,MAX_RETRIES=3)

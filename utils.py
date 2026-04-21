@@ -26,7 +26,6 @@ def save_project_in_container(files: dict):
     Example:
       files={"main.py":"print('Hello')"}
     """
-    # Clean old files first (important)
     try:
         subprocess.run(["docker", "exec", "python_sandbox", "rm", "-rf", "/app/*"])
 
