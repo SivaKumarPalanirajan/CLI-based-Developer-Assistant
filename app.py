@@ -42,7 +42,7 @@ ACCESS_TO_DIR=str(console.input("[bold blue] USER[/bold blue]: "))
 
 if ACCESS_TO_DIR:
     if {"Okay":'yes',"yes":"yes","no":"no","approve":"yes","reject":"no"}.get(str(ACCESS_TO_DIR.lower()))=="yes":
-        txt_file_agent=create_agent(
+        agent=create_agent(
             model=model,
             tools=[create_file,create_dir,view_dir,test_script,save_project_in_container,display_code],
             system_prompt=build_system_prompt(MAIN_DIR),
@@ -64,7 +64,7 @@ if ACCESS_TO_DIR:
         input_prompt=str(console.input("[bold green] SYSTEM[/bold green]: [cyan]What would you like to create today? [/cyan]"))
 
         if input_prompt:
-            STATUS=AGENT_EXECUTION_WITH_RETRIES(txt_file_agent,input_prompt,config_main_agent,MAX_RETRIES=3)
+            STATUS=AGENT_EXECUTION_WITH_RETRIES(agent,input_prompt,config_main_agent,MAX_RETRIES=3)
             
             if STATUS:
                 console.print("[bold green] SYSTEM[/bold green]:[red] Agent Execution failed [/red]")

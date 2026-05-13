@@ -1,6 +1,8 @@
-langchain
-langchain_community
-langsmith
-langchain_groq
-langgraph
-rich
+langchain==1.2.15
+langchain_community==0.4.1
+langsmith==0.7.25
+langchain_groq==1.1.2
+langgraph==1.1.6
+rich==15.0.0
+fastmcp==3.2.4
+langchain-mcp-adapters==0.2.2
