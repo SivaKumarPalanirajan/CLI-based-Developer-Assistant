@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from prompts import build_system_prompt
-from MCPBased.utils import AGENT_EXECUTION_WITH_RETRIES,DISPLAY_STEPS,display_code
+from utils import AGENT_EXECUTION_WITH_RETRIES,DISPLAY_STEPS,display_code
 from rich.console import Console 
 from rich.align import Align
 from rich.table import Table
@@ -44,7 +44,7 @@ async def main():
 
     if ACCESS_TO_DIR:
         client=MultiServerMCPClient(connections={
-            'Utilities':{"transport":'stdio',"command":"python","args":["MCPBased/mcp_server.py"]}
+            'Utilities':{"transport":'stdio',"command":"python","args":["mcp_server.py"]}
         })
 
         tools=await client.get_tools()
