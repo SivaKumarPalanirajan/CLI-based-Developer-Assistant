@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from prompts import build_system_prompt
-from utils import AGENT_EXECUTION_WITH_RETRIES,DISPLAY_STEPS,display_code
+from utils import AGENT_EXECUTION_WITH_RETRIES,DISPLAY_STEPS,display_code_in_terminal
 from rich.console import Console 
 from rich.align import Align
 from rich.table import Table
@@ -26,10 +26,11 @@ inmemory=InMemorySaver()
 async def main():
     console=Console()
 
-    console.print(Align.center("[bold yellow] CODING ASSISTANT v1.0 [/bold yellow]"))
+    console.print(Align.center("[bold yellow] CODING ASSISTANT v2.0 [/bold yellow]"))
     features_list=Table(title="Available Features")
     features_list.add_column("Features")
     features_list.add_row("View Directories")
+    features_list.add_row("View Files")
     features_list.add_row('Create Directories')
     features_list.add_row('Create files')
     features_list.add_row('Create files inside a docker container')
@@ -52,16 +53,16 @@ async def main():
         if {"Okay":'yes',"yes":"yes","no":"no","approve":"yes","reject":"no"}.get(str(ACCESS_TO_DIR.lower()))=="yes":
             agent=create_agent(
                 model=model,
-                tools=tools+[display_code],
+                tools=tools+[display_code_in_terminal],
                 system_prompt=build_system_prompt(MAIN_DIR),
                 middleware=[HumanInTheLoopMiddleware(
                     interrupt_on={
-                        "create_file":
+                        "create_file_locally":
                         {
                             "allowed_decisions":["approve","reject"]
                         },
-                        "create_dir":False,
-                        "view_dir":False,
+                        "create_dir_locally":False,
+                        "view_dir_locally":False,
                     }
                 ),TodoListMiddleware()]
                 ,

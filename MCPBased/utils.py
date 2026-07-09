@@ -9,13 +9,13 @@ from langchain.tools import tool
 console=Console()
 
 @tool()
-def display_code(files):
+def display_code_in_terminal(files):
     """
     After testing is completed, provide the codes to this function in the form of a dictionary so the user can view it.
     Args:
         files: dictionary containing the filenames and content of the files
     Example:
-        {"main.py":"print('Hello')"}
+        files={"main.py":"print('Hello')"}
     """
     try:
         for filename,filecontent in files.items():
