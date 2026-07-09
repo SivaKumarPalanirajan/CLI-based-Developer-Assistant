@@ -1,8 +1,10 @@
 langchain==1.2.15
 langchain_community==0.4.1
 langsmith==0.7.25
-langchain_groq==1.1.2
+langchain-groq==1.1.2
 langgraph==1.1.6
 rich==15.0.0
 fastmcp==3.2.4
 langchain-mcp-adapters==0.2.2
+python-dotenv==1.2.2
+langchain-core==1.4.0
