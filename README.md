@@ -1,9 +1,7 @@
 # CLI based Developer Assistant using Langchain, Langgraph, Docker and Groq along with MCP implementation 
 
-# Demo
-![Image of Develop Assistant in CLI](assets/DemoImage.png)<br><br>
-<p align="center"><a href = "assets/CodingAssistant.mp4"> Link to demo of Developer assistant (v1)</a>
-</p1>
+# Demo (v1)
+
 
 # Overview
 Coding agents tend to either run unchecked codes or require constant supervision. So this project aims for a middle ground — autonomy with low-risk, and explicit human approval on high-risk ones (creating/overwriting scripts).<br><br>
@@ -30,7 +28,6 @@ Apart from the tools, <br>
     - Docker sandbox env : ensure scripts are safe and reliable by testing inside the sandbox. <br>
 
 # Native and MCP based Variant
-
 **Native variant** - > Contains tools in the script <br>
 **MCP based Variant** -> Uses a MCP server to expose the tools 
 
