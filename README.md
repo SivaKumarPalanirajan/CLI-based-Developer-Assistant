@@ -3,7 +3,7 @@
 
 # Overview
 Coding agents tend to either run unchecked codes or require constant supervision. So this project aims for a middle ground — autonomy with low-risk, and explicit human approval on high-risk ones (creating/overwriting scripts).<br><br>
-This autonomous coding assistant can plan, write, test, and debug code inside an isolated Docker sandbox. It utilizes a **LangChain agent loop**, **Model Context Protocol** (MCP) tool servers, **Docker** for the **sandbox env** and **Groq-hosted LLM inference** to deliver a reliable, and observable coding workflow — with a **human-in-the-loop** control for the actions that matter most such as local file creation.
+This autonomous coding assistant can plan, write, test, and debug code inside an isolated Docker sandbox. It utilizes a **LangChain agent loop**, **Model Context Protocol** (MCP) tool servers, **Docker** for the **sandbox env** and **Groq-hosted LLM inference** to deliver a reliable, and observable coding workflow — with a **human-in-the-loop** control for the actions that matter most such as local file creation. It has **retry loops** which enable automatic bug correction with zero human intervention.
 <br>
 
 ![Image of Developer Assistant in CLI](assets/DemoImage.png)<br>
